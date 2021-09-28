@@ -17,6 +17,14 @@ app.get('/', (req, res)=>{
     rollbar.info("HTML is doing fine");
 })
 
+app.get('/pokemon', (req, res)=>{
+    try{
+        findPokemon()
+    } catch (error){
+        console.error(error)
+    }
+})
+
 app.use(rollbar.errorHandler())
 
 const port = process.env.PORT || 6969
