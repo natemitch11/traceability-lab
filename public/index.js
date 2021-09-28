@@ -8,7 +8,7 @@ button.addEventListener('click', ()=>{
    console.log('click')
     axios.get(baseURL + '/critical')
     .then(res => {
-        console.log(res.body)
+        console.log(res.data)
     })
     .catch(err =>{
         console.error(err)
