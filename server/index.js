@@ -22,4 +22,4 @@ app.get('/pokemon', (req, res)=>{
 app.use(rollbar.errorHandler())
 
 const port = process.env.PORT || 6969
-app.listen(port, console.log(`Hello There! on ${port}`))
+app.listen(port, ()=>{console.log(`Hello There! on ${port}`)})
