@@ -12,16 +12,16 @@ const rollbar = new Rollbar({
     captureUnhandledRejections: true
 });
 
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
-    rollbar.info("HTML is doing fine");
+    rollbar.info("These are not the Droids you are looking for")
 })
 
 app.get('/pokemon', (req, res)=>{
     try{
         findPokemon()
     } catch (error){
-        res.status(503)
+        res.status(500)
         rollbar.error("Endpoint Error Is HERE")
     }
 })
