@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const app = express()
 
-app.use(express.static('client'))
+// app.use(express.static('client'))
 
 const Rollbar = require('rollbar')
 const rollbar = new Rollbar({
