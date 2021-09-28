@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const app = express()
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 app.use('/public', express.static(path.join(__dirname, '../public')))
 app.use(express.json())
 
@@ -25,6 +25,11 @@ app.get('/pokemon', (req, res)=>{
         res.status(500)
         rollbar.error("Endpoint Error Is HERE")
     }
+})
+
+app.get('/critical', (req, res)=>{
+    res.status(200).send('YOU BROKE IT')
+    rollbar.critical("THIS IS CRITICAL FIX")
 })
 
 app.use(rollbar.errorHandler())
