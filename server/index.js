@@ -21,7 +21,8 @@ app.get('/pokemon', (req, res)=>{
     try{
         findPokemon()
     } catch (error){
-        console.error(error)
+        res.status(503)
+        rollbar.error("Endpoint Error Is HERE")
     }
 })
 
